@@ -16,15 +16,10 @@ export async function createTask() {
     })
 
     if (isCancel(name)){
-        mainMenu();
         return;
     }
     
     taskManager.create(name);
 
     console.log("\nTAREFA CRIADA COM SUCESSO!!!\n")
-
-    setTimeout(() => {
-        mainMenu();
-    }, 1000);
 }
