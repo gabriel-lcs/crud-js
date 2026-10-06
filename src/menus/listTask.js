@@ -1,6 +1,5 @@
 import { isCancel, select } from "@clack/prompts";
 import { taskManager } from "../manager/tasksManager.js";
-import { mainMenu } from "./main.js";
 import { updateTask } from "./update.js";
 
 export async function listTask(){

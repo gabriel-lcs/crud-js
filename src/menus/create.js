@@ -1,7 +1,6 @@
 import { isCancel, text } from "@clack/prompts";
 
 import { taskManager } from "../manager/tasksManager.js";
-import { mainMenu } from "./main.js";
 
 export async function createTask() {
     let name;

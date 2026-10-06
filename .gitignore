@@ -1,0 +1,17 @@
+node_modules/
+
+.env
+.env.*
+!.env.example
+
+tasks.json
+tasks.json.tmp
+tasks.json.corrompido
+
+*.log
+npm-debug.log*
+
+.DS_Store
+Thumbs.db
+
+.vscode/
