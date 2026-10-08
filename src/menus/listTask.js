@@ -1,10 +1,10 @@
 import { isCancel, select } from "@clack/prompts";
-import { taskManager } from "../manager/tasksManager.js";
+import { taskManager } from "../manager/tasksManagerPg.js";
 import { updateTask } from "./update.js";
 
 export async function listTask(){
     while (true){
-        const tasks = taskManager.toArray();
+        const tasks = await taskManager.toArray();
     
         if (tasks.length < 1){
             console.log("\nNENHUMA TAREFA PARA SER LISTADA\n");
