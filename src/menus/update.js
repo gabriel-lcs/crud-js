@@ -1,11 +1,11 @@
 import { isCancel, select, text } from "@clack/prompts";
-import { taskManager } from "../manager/tasksManager.js";
+import { taskManager } from "../manager/tasksManagerPg.js";
 
 export async function updateTask(taskId) {
     while (true){
-        const task = taskManager.get(taskId); 
+        const task = await taskManager.get(taskId); 
     
-        const dataFormatada = new Date(task.createdAt).toLocaleString();
+        const dataFormatada = new Date(task.created_at).toLocaleString();
     
         console.log(`\nTarefa: ${task.name}`);
         console.log(`Status: ${task.status}`);
@@ -40,7 +40,7 @@ export async function updateTask(taskId) {
                     continue;
                 }
     
-                taskManager.rename(taskId, newName);
+                await taskManager.rename(taskId, newName);
                 console.log("Nome alterado!")
     
                 return;
@@ -61,16 +61,15 @@ export async function updateTask(taskId) {
                     continue;
                 }
 
-                taskManager.setStatus(taskId, escolha);
+                await taskManager.setStatus(taskId, escolha);
                 console.log("Status definido!")
     
                 return;
     
             case "deletar":
-                const nameTask = task.name;
-    
-                taskManager.remove(taskId);
-                console.log(`${nameTask} removido da lista de tarfeas`);
+                const deletedTask = await taskManager.delete(taskId);
+                
+                console.log(`${deletedTask.name} removido da lista de tarfeas`);
     
                 return;
         }

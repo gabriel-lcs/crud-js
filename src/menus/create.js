@@ -1,6 +1,5 @@
 import { isCancel, text } from "@clack/prompts";
-
-import { taskManager } from "../manager/tasksManager.js";
+import { taskManager } from "../manager/tasksManagerPg.js";
 
 export async function createTask() {
     let name;
@@ -18,7 +17,7 @@ export async function createTask() {
         return;
     }
     
-    taskManager.create(name);
+    await taskManager.create(name);
 
     console.log("\nTAREFA CRIADA COM SUCESSO!!!\n")
 }

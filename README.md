@@ -79,7 +79,7 @@ Cada tarefa é um objeto no `tasks.json`:
   "id": "3b241101-e2bb-4255-8caf-4136c566a962",
   "name": "Estudar Node",
   "status": "Em andamento",
-  "createdAt": "2026-10-06T12:00:00.000Z"
+  "created_at": "2026-10-06T12:00:00.000Z"
 }
 ```
 
