@@ -1,0 +1,15 @@
+services:
+  database:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    ports:
+      - "5433:5432"
+    volumes:
+      - tasks_data:/var/lib/postgresql
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+volumes:
+  tasks_data:
